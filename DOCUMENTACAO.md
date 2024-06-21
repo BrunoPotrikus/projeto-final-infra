@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O projeto implementa uma aplicação de mensagens utilizando gRPC para comunicação assíncrona entre um cliente e um servidor. Este documento fornece uma visão geral dos componentes, instruções de uso e detalhes da arquitetura utilizada.
+O projeto implementa uma aplicação de mensagens utilizando gRPC para comunicação entre um cliente e um servidor.
 
 ## Componentes do Projeto
 
@@ -243,7 +243,7 @@ Verifica se os contêineres estão em execução.
 
 ### Arquitetura
 
-A arquitetura do projeto é distribuída e escalável, utilizando gRPC para comunicação eficiente entre serviços, Docker para isolamento de contêineres e facilitação do ambiente de desenvolvimento e implantação, e PostgreSQL para persistência de dados.
+A arquitetura do projeto é distribuída, utilizando gRPC para comunicação entre serviços, Docker para gerenciamento de contêineres, facilitando ambiente de desenvolvimento e implantação, e PostgreSQL para persistência de dados.
 
 ### Instalação e Execução
 
