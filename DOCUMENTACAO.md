@@ -6,7 +6,7 @@ O projeto implementa uma aplicação de mensagens utilizando gRPC para comunica�
 
 ## Componentes do Projeto
 
-### 1. Proto File (`messenger.proto`)
+### 1. Arquivo Proto (`messenger.proto`)
 
 O arquivo `messenger.proto` define os serviços e mensagens gRPC utilizados na comunicação entre cliente e servidor.
 
