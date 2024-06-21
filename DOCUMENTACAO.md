@@ -18,7 +18,6 @@ service Messenger {
     rpc EnviarMensagem (Mensagem) returns (Empty);
     rpc ReceberMensagem (InformacaoCliente) returns (stream Mensagem);
 }
-
 ```
 
 O serviço `Messenger` define três métodos RPC (Remote Procedure Call):
@@ -33,7 +32,6 @@ O serviço `Messenger` define três métodos RPC (Remote Procedure Call):
 message InformacaoCliente {
     string nome = 1;
 }
-
 ```
 `InformacaoCliente` é uma estrutura simples que contém um campo `nome`, representado como uma string. Este campo é usado para identificar o nome do cliente ao conectar-se ou receber mensagens.
 
@@ -41,7 +39,6 @@ message InformacaoCliente {
 message StatusConexao {
     bool conectado = 1;
 }
-
 ```
 
 `StatusConexao` contém um único campo `conectado`, que é um booleano usado para indicar se o cliente está conectado (true) ou não (false). É retornada como resposta ao método `Conectar`.
