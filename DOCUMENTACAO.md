@@ -10,7 +10,7 @@ O projeto implementa uma aplicação de mensagens utilizando gRPC para comunica�
 
 O arquivo `messenger.proto` define os serviços e mensagens gRPC utilizados na comunicação entre cliente e servidor.
 
-### 1.1 Definição do Serviço Messenger
+#### 1.1 Definição do Serviço Messenger
 
 ```
 service Messenger {
@@ -26,7 +26,7 @@ O serviço `Messenger` define três métodos RPC (Remote Procedure Call):
 - **EnviarMensagem**: Este método permite que o cliente envie uma mensagem para o servidor.
 - **ReceberMensagem**: Este método é usado pelo cliente para receber mensagens do servidor de forma assíncrona.
 
-### 1.2 Estrutura das Mensagens
+#### 1.2 Estrutura das Mensagens
 
 ```
 message InformacaoCliente {
@@ -72,7 +72,7 @@ Utilizado para armazenar mensagens enviadas pelos clientes. O esquema do banco d
 
 Os Dockerfiles (`Dockerfile.cliente` e `Dockerfile.servidor`) são usados para criar imagens Docker do cliente e do servidor, respectivamente. O arquivo `docker-compose.yml` configura os serviços (cliente, servidor, banco de dados) e a rede para comunicação entre eles.
 
-### 5.1 Dockerfile.cliente
+#### 5.1 Dockerfile.cliente
 
 ```
 FROM ubuntu:latest
@@ -131,7 +131,7 @@ CMD ["tail", "-f", "/dev/null"]
 ```
 O comando `tail -f /dev/null` mantém o contêiner em execução sem realizar nenhuma ação, sendo útil para manter o contêiner ativo enquanto ele executa outras tarefas em segundo plano.
 
-### 5.2 Dockerfile.servidor
+#### 5.2 Dockerfile.servidor
 
 Basicamente a mesma confguração do `Dockerfile.cliente`, apenas adicionando duas dependências:
 
@@ -157,7 +157,7 @@ O playbook `playbook.yml` automatiza a implantação da aplicação, instalando 
  ```
 Especifica os arquivos YAML que contêm variáveis a serem carregadas no playbook. Nesse caso, `vars.yml` contém variáveis `db_user`, `db_password` e `db_name`, necessárias para configurar o banco de dados da aplicação.
 
-### 6.1 Tasks
+#### 6.1 Tasks
 
 ```
 - name: Garantir que o cache do apt está atualizado
@@ -241,52 +241,52 @@ Copia todos os arquivos necessários para a aplicação para o repositório `/op
 ```
 Verifica se os contêineres estão em execução.
 
-## Arquitetura
+### Arquitetura
 
 A arquitetura do projeto é distribuída e escalável, utilizando gRPC para comunicação eficiente entre serviços, Docker para isolamento de contêineres e facilitação do ambiente de desenvolvimento e implantação, e PostgreSQL para persistência de dados.
 
 ### Instalação e Execução
 
-## Executar o Projeto
+#### Executar o Projeto
 `sudo ansible-playbook playbook.yml`
 
-## Teminal Linux ou WSL
+#### Teminal Linux ou WSL
 
-# Executar Servidor
+##### Executar Servidor
 
 1. Abrir um novo terminal
 2. `docker exec -it servidor /bin/sh`
 3. `python3 servidor.py`
 
-# Executar Cliente
+##### Executar Cliente
 
 1. Abrir um novo terminal
 2. `docker exec -it cliente /bin/sh`
 3. `python3 cliente.py`
 
-# Verificar Banco de Dados
+##### Verificar Banco de Dados
 
 1. Abrir um novo terminal
 2. `psql -U user -d messenger_db`
 3. `SELECT * FROM messages;`
 
-## Docker Desktop
+#### Docker Desktop
 
-# Executar Servidor
+##### Executar Servidor
 
 1. Acessar contêiner
 2. Ir em `Exec`
 3. Clicar em `Open in external terminal`
 4. `python3 servidor.py`
 
-# Executar Cliente
+##### Executar Cliente
 
 1. Acessar contêiner
 2. Ir em `Exec`
 3. Clicar em `Open in external terminal`
 4. `python3 cliente.py`
 
-# Verificar Banco de Dados
+##### Verificar Banco de Dados
 
 1. Acessar contêiner
 2. Ir em `Exec`
