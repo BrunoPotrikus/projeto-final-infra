@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service Messenger {
+    rpc Conectar (InformacaoCliente) returns (StatusConexao);
+    rpc EnviarMensagem (Mensagem) returns (Empty);
+    rpc ReceberMensagem (InformacaoCliente) returns (stream Mensagem);
+}
+
+message InformacaoCliente {
+    string nome = 1;
+}
+
+message StatusConexao {
+    bool conectado = 1;
+}
+
+message Mensagem {
+    string remetente = 1;
+    string destinatario = 2;
+    string conteudo = 3;
+}
+
+message Empty {}
