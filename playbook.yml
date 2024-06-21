@@ -56,24 +56,12 @@
         name: db
       register: db_status_info
 
-    - name: Exibir status do banco de dados
-      debug:
-        var: db_status_info.containers[0].State.Status
-
     - name: Verificar se o contêiner do servidor está em execução
       community.docker.docker_container_info:
         name: servidor
       register: servidor_status_info
 
-    - name: Exibir status do servidor
-      debug:
-        var: servidor_status_info.containers[0].State.Status
-
     - name: Verificar se o contêiner do cliente está em execução
       community.docker.docker_container_info:
         name: cliente
       register: cliente_status_info
-
-    - name: Exibir status do cliente
-      debug:
-        var: cliente_status_info.containers[0].State.Status
