@@ -245,28 +245,51 @@ Verifica se os contêineres estão em execução.
 
 A arquitetura do projeto é distribuída e escalável, utilizando gRPC para comunicação eficiente entre serviços, Docker para isolamento de contêineres e facilitação do ambiente de desenvolvimento e implantação, e PostgreSQL para persistência de dados.
 
-### Fluxo de Funcionamento
-
-1. **Inicialização do Ambiente**:
-   - O Docker Compose é utilizado para configurar e interconectar os serviços (cliente, servidor, banco de dados) em uma rede interna definida.
-
-2. **Comunicação Cliente-Servidor**:
-   - O cliente se conecta ao servidor utilizando gRPC para enviar e receber mensagens.
-
-3. **Persistência de Dados**:
-   - As mensagens enviadas pelos clientes são armazenadas no banco de dados PostgreSQL para garantir a persistência dos dados.
-
-## Instruções de Uso
-
-### Pré-requisitos
-
-- Docker e Docker Compose instalados.
-- Ansible instalado (opcional, se desejar automatizar a implantação).
-
 ### Instalação e Execução
 
-1. Clone o repositório do projeto:
+## Executar o Projeto
+`sudo ansible-playbook playbook.yml`
 
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   cd nome-do-repositorio
+## Teminal Linux ou WSL
+
+# Executar Servidor
+
+1. Abrir um novo terminal
+2. `docker exec -it servidor /bin/sh`
+3. `python3 servidor.py`
+
+# Executar Cliente
+
+1. Abrir um novo terminal
+2. `docker exec -it cliente /bin/sh`
+3. `python3 cliente.py`
+
+# Verificar Banco de Dados
+
+1. Abrir um novo terminal
+2. `psql -U user -d messenger_db`
+3. `SELECT * FROM messages;`
+
+## Docker Desktop
+
+# Executar Servidor
+
+1. Acessar contêiner
+2. Ir em `Exec`
+3. Clicar em `Open in external terminal`
+4. `python3 servidor.py`
+
+# Executar Cliente
+
+1. Acessar contêiner
+2. Ir em `Exec`
+3. Clicar em `Open in external terminal`
+4. `python3 cliente.py`
+
+# Verificar Banco de Dados
+
+1. Acessar contêiner
+2. Ir em `Exec`
+3. Clicar em `Open in external terminal`
+4. `psql -U user -d messenger_db`
+5. `SELECT * FROM messages;`
